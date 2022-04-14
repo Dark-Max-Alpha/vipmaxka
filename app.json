@@ -5,7 +5,7 @@
     "keywords": ["Trex", "T-REX"],
     "stack": "container",
     "env": {
-      "_ANONYMOUS_SESSION": {
+      "_VIP_SESSION": {
             "description": "Paste your QR session that you got from https://replit.com/@TRexWa/T-REX-QR-SESSION .",
             "required": true
         },
