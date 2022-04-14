@@ -2,13 +2,13 @@
   "name": "ANONYMOUS-BOT",
   "version": "V 1.0.0",
   "description": ".",
-  "main": "./Anonymous-Lovers-Bot/bot.js",
+  "main": "./vipmaxka/vip.js",
   "scripts": {
-    "start": "supervisor -s bot.js"
+    "start": "supervisor -s vip.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DARKCRIME1/Anonymous-Lovers-Bot.git"
+    "url": "git+https://github.com/Dark-Max-Alpha/vipmaxka.git"
   },
   "keywords": [
     "whatsapp",
