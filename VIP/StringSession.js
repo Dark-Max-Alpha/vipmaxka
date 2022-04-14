@@ -7,7 +7,7 @@ class StringSession {
     }
 
     deCrypt(string = undefined) {
-        if ('_ANONYMOUS_SESSION' in process.env && string === undefined) {
+        if ('_VIP_SESSION' in process.env && string === undefined) {
             string = process.env.STRING_SESSION;
         } else if (string !== undefined) {
             if (fs.existsSync(string)) {
@@ -22,7 +22,7 @@ class StringSession {
     }
 
     createStringSession(dict) {
-        return 'ANONYMOUS;;;' + Buffer.from(JSON.stringify(dict)).toString('base64');
+        return 'VIP;;;' + Buffer.from(JSON.stringify(dict)).toString('base64');
     }
 }
 
