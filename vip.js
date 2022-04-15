@@ -11,7 +11,7 @@ const events = require("./events");
 const chalk = require('chalk');
 const config = require('./config');
 const {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
-const {Message, StringSession, Image, Video} = require('./VIP/');
+const {Message, StringSession, Image, VidVIP_COMMANDeo} = require('./VIP/');
 const { DataTypes } = require('sequelize');
 const { getMessage } = require("./VIP_COMMAND/sql/greetings");
 const axios = require('axios');
@@ -29,13 +29,13 @@ const TrexDB = config.DATABASE.define('Trex', {
     }
 });
 
-fs.readdirSync('./commands/sql/').forEach(plugin => {
+fs.readdirSync('./VIP_COMMAND/sql/').forEach(plugin => {
     if(path.extname(plugin).toLowerCase() == '.js') {
-        require('./commands/sql/' + plugin);
+        require('./VIP_COMMAND/sql/' + plugin);
     }
 });
 
-const plugindb = require('./commands/sql/plugin');
+const plugindb = require('./VIP_COMMAND/sql/plugin');
 var OWN = { ff: '94771039631,0' }
 String.prototype.format = function () {
     var i = 0, args = arguments;
@@ -119,12 +119,12 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
 
         var plugins = await plugindb.PluginDB.findAll();
         plugins.map(async (plugin) => {
-            if (!fs.existsSync('./commands/' + plugin.dataValues.name + '.js')) {
+            if (!fs.existsSync('./VIP_COMMAND/' + plugin.dataValues.name + '.js')) {
                 console.log(plugin.dataValues.name);
                 var response = await got(plugin.dataValues.url);
                 if (response.statusCode == 200) {
-                    fs.writeFileSync('./commands/' + plugin.dataValues.name + '.js', response.body);
-                    require('./commands/' + plugin.dataValues.name + '.js');
+                    fs.writeFileSync('./VIP_COMMAND/' + plugin.dataValues.name + '.js', response.body);
+                    require('./VIP_COMMAND/' + plugin.dataValues.name + '.js');
                 }     
             }
         });
@@ -133,9 +133,9 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
             chalk.blueBright.italic('🎇✨🪔 Installing plugins...')
         );
 
-        fs.readdirSync('./commands/').forEach(plugin => {
+        fs.readdirSync('./VIP_COMMAND/').forEach(plugin => {
             if(path.extname(plugin).toLowerCase() == '.js') {
-                require('./commands/' + plugin);
+                require('./VIP_COMMAND/' + plugin);
             }
         });
 // ════════════════════PLUGGINS SUCCESS🍁🍁🍁
