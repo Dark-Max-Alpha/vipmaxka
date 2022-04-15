@@ -1,6 +1,6 @@
 build:
   docker:
-      worker: /Anonymous/Dockerfile
+      worker: /VIP/Dockerfile
 run:
    worker: npm start
    
